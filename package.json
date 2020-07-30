@@ -16,10 +16,18 @@
     "jsdom": "^16.3.0",
     "marked": "^1.1.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.9.25",
-    "slugify": "^1.4.4"
+    "mongoose": "^5.9.26",
+    "slugify": "^1.4.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aritrasinha108/markdown-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aritrasinha108/markdown-blog/issues"
+  },
+  "homepage": "https://github.com/aritrasinha108/markdown-blog#readme"
 }

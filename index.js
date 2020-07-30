@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const methoddOverride = require('method-override');
 mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 app.use(methoddOverride('_method'));
+app.use(express.static(__dirname + '/public/'));
 app.use(express.urlencoded({ extended: false }));
 
 
