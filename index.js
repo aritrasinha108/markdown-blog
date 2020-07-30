@@ -8,6 +8,7 @@ mongoose.connect('mongodb://localhost/blog', { useNewUrlParser: true, useUnified
 app.use(methoddOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 
+app.use(express.static(__dirname + '/public'));
 
 app.set('view engine', 'ejs');
 
