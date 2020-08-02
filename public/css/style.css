@@ -1,3 +1,68 @@
-#title {
-    text-align: center;   
+#page-title {
+    text-align: center;
+    font-size: 3.6em;
+    color: white;
+    text-shadow: 3px 3px 0.5px black;
+    opacity: 0.9;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+}
+body::before{
+    content: "";
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+    background: url('../assets/bg3.jpg') no-repeat center center/cover;
+    opacity: 0.8;
+    z-index: -1;
+}
+.container{
+    overflow-y: scroll;
+    height: 83vh;
+}
+.card {
+    background-color: #ffffff45;
+    box-shadow: 10px 10px 5px #00000069;
+    border: none;
+}
+h4,label{
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 0.5px black;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.2em;
+    
+}
+.card-subtitle
+{
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+    font-family: 'Roboto Mono', monospace;
+}
+.card-text{
+    text-align: center;
+    font-size: 1.4em;
+    font-family: 'Roboto Mono', monospace;
+}
+#crud{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    font-family: 'Roboto Mono', monospace;
+    font-style: italic;
+}
+input,textarea{
+background-color: blanchedalmond;
+outline: none;
+font-family: 'Roboto Mono', monospace;
+font-style: italic;
+font-weight: 400;
+border: none;
+
 }
