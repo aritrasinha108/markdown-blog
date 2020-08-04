@@ -15,10 +15,28 @@
 </head>
 
 <body>
+    <nav id="navbar" style="justify-content: space-between;">
+        <div id="logo">
+            <img src="../../assets/logo.png" alt="">
+        </div>
+
+        <ul id="options">
+            <li id="choice"><a href="/articles">All Articles</a></li>
+            <li id="choice"><a href="/articles/myArticles">My Articles</a></li>
+            <li id="choice"><a href="/articles/new">New Article</a></li>
+
+
+        </ul>
+        <a href="/users/logout" class="btn btn-secondary" id="logout">Logout</a>
+
+    </nav>
     <div class="container" style="overflow-y:hidden;">
-        <h1 class="mb-1" id="page-title"><%= article.title %></h1>
+        <div class="head">
+            <h1 class="mb-1" id="page-title"><%= article.title %></h1>
+
+        </div>
         <div class="mb-2 card-subtitle"><%= article.created.toLocaleDateString() %></div>
-        <a href="/" class="btn btn-secondary mr-3 ml-3 mt-4 mb-5"> All Articles</a>
+        <a href="/articles/" class="btn btn-secondary mr-3 ml-3 mt-4 mb-5"> All Articles</a>
         <a href="/articles/edit/<%= article.id%>" class="btn btn-primary mr-3 ml-3 mt-4 mb-5">Edit</a>
         <div class="card mt-10" style="overflow-y: auto;">
             <%- article.sanitizedHtml %>

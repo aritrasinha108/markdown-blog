@@ -66,3 +66,85 @@ font-weight: 400;
 border: none;
 
 }
+#options{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    width: 20vh;
+}
+.head{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+       
+}
+#navbar::before{
+    content: "";
+    background-color: #080000;
+    position: absolute;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+/* Logo image */
+#logo{
+    margin: 10px 17px;
+}
+#logo img {
+    height: 64px;
+    margin: 2px 5px;
+}
+   
+ 
+ /* List Styling */
+#options
+{
+    display: flex;
+    /* align-items: center; */
+    /* align-content: center; */
+}
+#navbar ul li{
+    list-style: none;
+  
+    font-size: 1.3rem;
+   font-family: 'Roboto Mono', monospace;
+    /* font-style: italic; */
+    /* font-weight: bold; */
+    
+}
+#navbar ul li a{
+   text-decoration: none;
+   color:white;
+   display: block;
+   border-radius: 23px;
+   padding: 21px 36px;
+  font-family: 'Roboto Mono', monospace;
+  
+
+}
+#navbar ul li a:hover
+{
+    background-color: bisque;
+    color: black;
+    font-weight: 400;
+}
+#logout{
+    margin-right:4px;
+    width: 6vw;
+    
+}

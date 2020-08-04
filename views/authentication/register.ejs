@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TYP-O: India's first uncensored platform to write whatever there is in yor mind</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="../../assets/logo.png" alt="">
+        </div>
+
+        <ul id="options">
+            <li id="choice"><a href="/">Home</a></li>
+            <li id="choice"><a href="/users/login">Login</a></li>
+            <li id="choice"><a href="/users/register">Register</a></li>
+            <li id="choice"><a class="disabled" href="#" aria-disabled="true" id="choice">Articles</a></li>
+
+        </ul>
+
+
+    </nav>
+    <div class="container" style="overflow-y: auto">
+        <h1 class="mb-4" id="page-title">Register to Type-O!!!</h1>
+        <div class="card" id="">
+            <%- include("./partials/messages") %>
+            <form action="/users/register" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" id="name" name="name" class="form-control" placeholder="Enter Name"
+                        value="<%= typeof name != 'undefined' ? name : '' %>" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                        value="<%= typeof email != 'undefined' ? email : '' %>" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control"
+                        placeholder="Create Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+                </div>
+                <div class="form-group">
+                    <label for="password2">Confirm Password</label>
+                    <input type="password" id="password2" name="password2" class="form-control"
+                        placeholder="Confirm Password"
+                        value="<%= typeof password2 != 'undefined' ? password2 : '' %>" />
+                </div>
+                <div class="options" id="options">
+                    <a href="/" class="btn btn-danger btn-block mb-2 mt-2 ml-2 mr-2">Cancel</a>
+                    <button type="submit" class="btn btn-primary btn-block mb-3 mt-3 ml-2 mr-2">
+                        Register
+                    </button>
+                </div>
+            </form>
+            <p class="lead mt-4 card-text">Have An Account? <a href="/users/login">Login</a></p>
+
+        </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+
+</html>

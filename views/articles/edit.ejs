@@ -15,8 +15,24 @@
 </head>
 
 <body>
-    <h1 class="mb-4" id="page-title">Edit Article</h1>
+    <nav id="navbar" style="justify-content: space-between;">
+        <div id="logo">
+            <img src="../../assets/logo.png" alt="">
+        </div>
+
+        <ul id="options">
+            <li id="choice"><a href="/articles">All Articles</a></li>
+            <li id="choice"><a href="/articles/myArticles">My Articles</a></li>
+            <li id="choice"><a href="/articles/new">New Article</a></li>
+
+
+        </ul>
+        <a href="/users/logout" class="btn btn-secondary" id="logout">Logout</a>
+
+    </nav>
+
     <div class="container">
+        <h1 class="mb-4" id="page-title">Edit Article</h1>
 
         <form action="/articles/<%= article.id %>?_method=PUT" method="POST">
             <%- include("_formFields") %>
