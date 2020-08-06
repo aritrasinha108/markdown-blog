@@ -11,6 +11,9 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../js/main.js"></script>
 
 </head>
 
@@ -52,7 +55,32 @@
                 <div class="card-text mb-2">
                     <%= article.description %>
                 </div>
-                <div id="crud"><a href="/articles/<%= article.slug %>" class="btn btn-primary mr-3 ml-3 mt-4">Read
+
+                <div id="like-unlike" style="justify-content: center;">
+
+                    <div class="like-unlike">
+
+                        <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="upvote-button">
+                            <img width="20.0" height="20.0" src="../../assets/upvote.jpeg" alt="">
+                            <%= article.upvotes %>
+                        </button>
+                    </div>
+                    <div class="like-unlike">
+
+                        <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="downvote-button">
+                            <img src="../../assets/downvote.png" alt="" width="20.0" height="20.0">
+                            <%= article.downvotes %>
+                        </button>
+                    </div>
+                    <div class="like-unlike">
+
+                        <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="comment-button">
+                            <img src="../../assets/comments.jpeg" alt="" width="20.0" height="20.0">
+                            <%= article.comments.length %>
+                        </button>
+
+                    </div>
+                    <a href="/articles/<%= article.slug %>" class="btn btn-primary mr-3 ml-3 mt-4">Read
                         More</a>
                     <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
 
@@ -61,8 +89,45 @@
                     <a href="/articles/edit/<%= article.id %>" class="btn btn-primary mr-3 ml-3 mt-4"> Edit</a>
                 </div>
             </div>
+            <div class="mt-24 mr-4 ml-4" id="comment-box" style="overflow-y: auto;">
+                <form action="/articles/<%= article.id %>" method="POST">
+                    <div class="form-group " style="display:flex;flex-direction: row;">
+
+                        <input type="text" name="comment" id="comment" class="form-control mb-10 mt-10"
+                            placeholder="Write a comment">
+                        <button type="submit" id="add-comment" class="btn btn-primary"
+                            onclick="addComment(event)">Send</button>
+                    </div>
+                </form>
+                <div class="card-title">
+                    <h4>Comments</h4>
+                </div>
+
+                <% article.comments.forEach(comment=>{ %>
+                <div class="card" class="each-comment"
+                    style="display: flex; flex-direction: row; justify-content: start ;height: auto;">
+
+
+                    <div class="profile pr-0">
+                        <img src="../../assets/profile.png" class="mt-2" width="20%" height="40px" alt="...">
+                        <%= comment.name %>
+                    </div>
+
+                    <div class="card-body">
+                        <p class="card-text" style="text-align: start; font-size: 1.2em;">
+                            <%=comment.comment %>
+                        </p>
+                    </div>
+                </div>
+
+                <% }) %>
+
+            </div>
+
         </div>
-        <%}) %>
+    </div>
+    </div>
+    <%}) %>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

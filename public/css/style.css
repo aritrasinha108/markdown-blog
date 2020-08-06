@@ -148,3 +148,44 @@ border: none;
     width: 6vw;
     
 }
+#like-unlike{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    width: auto;
+}
+#like-unlike button
+{
+    border: none;
+    outline: none;
+}
+.like-unlike
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#comment-box{
+    display: none;
+}
+.each-comment{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    box-shadow: 3px 3px 1px black;
+}
+.profile
+{
+    display: flex;
+     flex-direction: column;
+      justify-content: space-between;
+    width: 20vw;
+    padding: 0px;
+    font-family:'Roboto Mono', monospace;
+    color: black;
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 0px;
+}

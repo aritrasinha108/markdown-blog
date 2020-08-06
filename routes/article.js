@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const Article = require('../model/article');
+const { Article, Comment } = require('../model/article');
 const Users = require('../model/User');
 const passport = require('passport');
+const { text } = require('express');
 
 router.get('/', async (req, res) => {
     console.log("Welcome...");
@@ -60,10 +61,25 @@ router.get('/edit/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     await Article.findByIdAndDelete(req.params.id);
     let author = await Users.findOne({ email: req.user.email });
-    author.articles = author.articles.filter(article => article != req.params.title);
+    let index = author.articles.findIndex(article => article != req.params.title);
+    author.articles.splice(index, 1);
     await author.save();
     res.redirect('/articles');
 });
+router.post('/:id', async (req, res) => {
+
+    let article = await Article.findById(req.params.id);
+    let writer = req.user;
+    let comment = new Comment({
+        name: req.user.name,
+        comment: req.body.comment,
+        email: req.user.email
+    });
+    article.comments.push(comment);
+    article = await article.save();
+    res.redirect('/articles');
+
+})
 
 
 function saveArticleAndRedirect(path) {
@@ -85,12 +101,13 @@ function saveArticleAndRedirect(path) {
             if (path == 'edit') {
 
                 let index = author.articles.findIndex(entry => entry.title == req.oldTitle);
-                author.articles[index] = article.title;
+                author.articles.splice(index, 1);
+
 
             }
-            else {
-                author.articles.push(article.title);
-            }
+
+            author.articles.push(article.title);
+
             await author.save();
             console.log("is the author");
 

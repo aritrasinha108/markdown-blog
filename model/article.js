@@ -4,6 +4,24 @@ const slugify = require('slugify');
 const createDomPurifier = require('dompurify');
 const { JSDOM } = require('jsdom');
 const dompurify = createDomPurifier(new JSDOM().window);
+const commentSchema = new mongoose.Schema({
+    name:
+    {
+        type: String,
+        required: true
+    },
+    email:
+    {
+        type: String,
+        required: true
+    },
+
+    comment: {
+        type: String,
+        required: true
+    }
+
+})
 const articleSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -37,9 +55,19 @@ const articleSchema = new mongoose.Schema({
     sanitizedHtml: {
         type: String,
         required: true
-    }
+    },
+    upvotes: {
+        type: Number,
+        default: 0
+    },
+    downvotes: {
+        type: Number,
+        default: 0
+    },
+    comments: [commentSchema]
 
 });
+
 articleSchema.pre('validate', function (next) {
     if (this.title) {
         this.slug = slugify(this.title, { lower: true, strict: true })
@@ -49,4 +77,6 @@ articleSchema.pre('validate', function (next) {
     }
     next();
 });
-module.exports = mongoose.model('Article', articleSchema);
+const Comment = mongoose.model('Comment', commentSchema);
+const Article = mongoose.model('Article', articleSchema);
+module.exports = { Comment, Article };
