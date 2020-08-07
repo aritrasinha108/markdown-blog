@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/main.js"></script>
+    <script defer src="../js/main.js"></script>
 </head>
 
 <body>
@@ -40,6 +40,7 @@
 
         <a href="/articles/new/" class="btn btn-success">New Article</a>
         <% articles.forEach(article =>{ %>
+
         <div class="card mt-4">
             <div class="card-body">
                 <div class="card-title">
@@ -62,16 +63,20 @@
 
                         <div class="like-unlike">
 
-                            <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="upvote-button">
+                            <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="upvote-button"
+                                data-id="<%= article.title %>">
                                 <img width="20.0" height="20.0" src="../../assets/upvote.jpeg" alt="">
-                                <%= article.upvotes %>
+                                <%= article.upvotes.length %>
+
                             </button>
                         </div>
                         <div class="like-unlike">
 
-                            <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="downvote-button">
-                                <img src="../../assets/downvote.png" alt="" width="20.0" height="20.0">
-                                <%= article.downvotes %>
+                            <button width="20.0" height=20.0 class="ml-3 mr-3 mt-4" id="downvote-button"
+                                data-id="<%=article.title %>">
+                                <img src="../../assets/downvote.png" alt="" width="20.0" height="20.0"
+                                    data-id="<%= article.title %>">
+                                <%= article.downvotes.length %>
                             </button>
                         </div>
                         <div class="like-unlike">
@@ -89,14 +94,14 @@
                 </div>
 
             </div>
-            <div class="mt-24 mr-4 ml-4" id="comment-box" style="overflow-y: auto;">
+            <div class="mt-24 mr-4 ml-4" id="comment-box" style="overflow-y: auto; margin: 20px 0px;">
                 <form action="/articles/<%= article.id %>" method="POST">
                     <div class="form-group " style="display:flex;flex-direction: row;">
 
-                        <input type="text" name="comment" id="comment" class="form-control mb-10 mt-10"
+                        <input type="text" name="comment" id="<%=article.id %>" class="form-control mb-10 mt-10"
                             placeholder="Write a comment">
                         <button type="submit" id="add-comment" class="btn btn-primary"
-                            onclick="addComment(event)">Send</button>
+                            data-id="<%=article.id %>">Send</button>
                     </div>
                 </form>
                 <div class="card-title">
@@ -105,7 +110,7 @@
 
                 <% article.comments.forEach(comment=>{ %>
                 <div class="card" class="each-comment"
-                    style="display: flex; flex-direction: row; justify-content: start ;height: auto;">
+                    style="display: flex; flex-direction: row; justify-content: start ;height: auto;margin: 5px 2px;">
 
 
                     <div class="profile pr-0">

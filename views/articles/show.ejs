@@ -42,16 +42,18 @@
 
             <div class="like-unlike">
 
-                <button width="20.0" height=20.0 class="mr-3 ml-3 mt-4 mb-5" id="upvote-button">
+                <button width="20.0" height=20.0 class="mr-3 ml-3 mt-4 mb-5" id="upvote-button"
+                    data-id="<%=article.title %>">
                     <img width="20.0" height="20.0" src="../../assets/upvote.jpeg" alt="">
-                    <%= article.upvotes %>
+                    <%= article.upvotes.length %>
                 </button>
             </div>
             <div class="like-unlike">
 
-                <button width="20.0" height=20.0 class="mr-3 ml-3 mt-4 mb-5" id="downvote-button">
+                <button width="20.0" height=20.0 class="mr-3 ml-3 mt-4 mb-5" id="downvote-button"
+                    data-id="<%=article.title %>">
                     <img src="../../assets/downvote.png" alt="" width="20.0" height="20.0">
-                    <%= article.downvotes %>
+                    <%= article.downvotes.length %>
                 </button>
             </div>
             <div class="like-unlike">
@@ -72,13 +74,13 @@
         </div>
         <div class="mt-20">
             <div class="mt-24 mr-4 ml-4" id="comment-box" style="overflow-y: auto;">
-                <form action="/articles/<%= article.id %>" method="POST">
+                <form action="#" method="POST">
                     <div class="form-group " style="display:flex;flex-direction: row;">
 
-                        <input type="text" name="comment" id="comment" class="form-control mb-10 mt-10"
-                            placeholder="Write a comment">
+                        <input type="text" name="comment" id="<%=article.id %>" data-id="<%=article.id %>"
+                            class="form-control mb-10 mt-10" placeholder="Write a comment">
                         <button type="submit" id="add-comment" class="btn btn-primary"
-                            onclick="addComment(event)">Send</button>
+                            data-id="<%= article.id %>">Send</button>
                     </div>
                 </form>
                 <div class="card-title">

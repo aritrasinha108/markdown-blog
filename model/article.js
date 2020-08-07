@@ -22,6 +22,18 @@ const commentSchema = new mongoose.Schema({
     }
 
 })
+const voterSchema = new mongoose.Schema({
+    email: {
+        type: String,
+        required: true,
+
+    },
+    name: {
+        type: String,
+        required: true,
+
+    },
+})
 const articleSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -56,14 +68,8 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    upvotes: {
-        type: Number,
-        default: 0
-    },
-    downvotes: {
-        type: Number,
-        default: 0
-    },
+    upvotes: [voterSchema],
+    downvotes: [voterSchema],
     comments: [commentSchema]
 
 });
@@ -79,4 +85,5 @@ articleSchema.pre('validate', function (next) {
 });
 const Comment = mongoose.model('Comment', commentSchema);
 const Article = mongoose.model('Article', articleSchema);
-module.exports = { Comment, Article };
+const Voter = mongoose.model('Voter', voterSchema);
+module.exports = { Article, Comment, Voter };

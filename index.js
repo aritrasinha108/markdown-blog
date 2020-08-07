@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const articleRouter = require('./routes/article');
-const { Article, Comment } = require('./model/article');
+const { Article, Comment, Voter } = require('./model/article');
 const mongoose = require('mongoose');
 const methoddOverride = require('method-override');
 const authRouter = require('./routes/auth');
@@ -54,4 +54,4 @@ app.get('/', async (req, res) => {
 });
 
 
-app.listen(80);
+app.listen(3000);
