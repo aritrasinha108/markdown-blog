@@ -164,7 +164,7 @@ router.post('/toggleDownvote/:title', async (req, res) => {
         res.json({
             status: "error",
             status: "error",
-            message: "Post dows not exist"
+            message: "Post does not exist"
         });
     }
     else {
