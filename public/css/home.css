@@ -87,6 +87,21 @@ h4,label{
 .btn{
     font-family: 'Roboto Mono', monospace;
     font-style: italic;
+    font-size: 1.2em;
+}
+@media (max-width:800px)
+{
+   .btn{
+    
+    font-size: 1.0em;
+} 
+}
+@media (max-width:580px)
+{
+   .btn{
+    
+    font-size: 0.8em;
+} 
 }
 input,textarea{
 background-color: rgba(255, 235, 205, 0.596);
@@ -103,9 +118,7 @@ border: none;
     align-items: center;
     justify-content: center;
 }
-.btn{
-    width: 20vh;
-}
+
 .head{
     display: flex;
     flex-direction: row;
