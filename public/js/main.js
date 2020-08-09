@@ -1,23 +1,27 @@
 
-function showComments() {
-    $("#comment-box").toggle(
-        () => {
-            $("#comment-box").fadeIn("slow");
+function showComments(event) {
+    let id = event.target.getAttribute("data-id");
+    // $(`#comment-box-${id}`).toggle(
+    //     () => {
+    //         $(`#comment-box-${id}`).show();
 
-        },
-        () => { $("#comment-box").fadeOut("slow") },
-    )
+    //     },
+    //     () => { $(`#comment-box-${id}`).hide(); },
+    // );
+
+    let display = $(`#comment-box-${id}`).css('display');
+    console.log(display);
+    if (display == "none") {
+        $(`#comment-box-${id}`).css('display', 'block');
+
+    }
+    else if (display == 'block') {
+        $(`#comment-box-${id}`).css('display', 'none');
+    }
 }
 $(document).ready(function () {
-    $('#comment-button').click(function () {
-        $("#comment-box").toggle(function () {
-            $("#comment-box").slideOut();
-        },
-            function () {
-                $("#comment-box").slideIn();
-            });
-    });
-    $("#upvote-button").click(function (event) {
+    console.log("Website ready...");
+    $(".upvote-button").click(function (event) {
         const xhr = new XMLHttpRequest();
         var title = event.target.getAttribute("data-id");
         console.log("title is: " + title);
@@ -29,8 +33,7 @@ $(document).ready(function () {
                     var upvotes = parseInt(event.target.innerText);
                     console.log('earlier ' + upvotes);
                     upvotes++;
-                    event.target.innerHTML = ` <img width="20.0" height="20.0" src="../../assets/upvote.jpeg" alt="">
-                                ${upvotes}`;
+                    event.target.innerHTML = `${upvotes}`;
                     // alert(response.message);
                     console.log('now ' + upvotes);
 
@@ -39,8 +42,7 @@ $(document).ready(function () {
                     var upvotes = parseInt(event.target.innerText);
                     console.log('earlier ' + upvotes);
                     upvotes--;
-                    event.target.innerHTML = ` <img width="20.0" height="20.0" src="../../assets/upvote.jpeg" alt="">
-                                ${upvotes}`;
+                    event.target.innerHTML = `${upvotes}`;
                     // alert(response.message);
                     console.log('now ' + upvotes);
                 }
@@ -58,7 +60,7 @@ $(document).ready(function () {
 
 
     });
-    $("#downvote-button").click(function (event) {
+    $(".downvote-button").click(function (event) {
         const xhr = new XMLHttpRequest();
         var title = event.target.getAttribute("data-id");
         console.log("title is: " + title);
@@ -70,8 +72,7 @@ $(document).ready(function () {
                     var downvotes = parseInt(event.target.innerText);
                     console.log('earlier ' + downvotes);
                     downvotes++;
-                    event.target.innerHTML = ` <img width="20.0" height="20.0" src="../../assets/downvote.png" alt="">
-                                ${downvotes}`;
+                    event.target.innerHTML = `${downvotes}`;
                     // alert(response.message);
                     console.log('now ' + downvotes);
                 }
@@ -79,8 +80,7 @@ $(document).ready(function () {
                     var downvotes = parseInt(event.target.innerText);
                     console.log('earlier ' + downvotes);
                     downvotes--;
-                    event.target.innerHTML = ` <img width="20.0" height="20.0" src="../../assets/downvote.png" alt="">
-                                ${downvotes}`;
+                    event.target.innerHTML = `${downvotes}`;
                     // alert(response.message);
                     console.log('now ' + downvotes);
                 }
@@ -98,18 +98,22 @@ $(document).ready(function () {
 
 
     });
-    $("#add-comment").click(function (event) {
+    $(".add-comment").click(function (event) {
         event.preventDefault();
         const xhr = new XMLHttpRequest();
         const id = event.target.getAttribute("data-id");
         let comment = document.getElementById(id).value;
+        let commentElement = document.getElementById(id);
         console.log(comment);
         xhr.open('POST', `/articles/${id}&${comment}`, true);
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
                 if (response.status == "success") {
-                    $("#comment-box").append(`
+                    let comments = parseInt($(`#comment-button-${id}`).innerText);
+                    comments++;
+                    $(`#comment-button-${id}`).innerHTML = `${comments}`;
+                    $(`#comment-box-${id}`).append(`
                     <div class="card" class="each-comment"
                     style="display: flex; flex-direction: row; justify-content: start ;height: auto;margin: 5px 2px;">
 
@@ -125,12 +129,14 @@ $(document).ready(function () {
                         </p>
                     </div>
                 </div>`);
+
                 }
                 else {
                     alert(response.message);
                 }
 
             }
+            commentElement.value = "";
         }
         var formData = new FormData();
         // let comment = document.getElementById(id).value;

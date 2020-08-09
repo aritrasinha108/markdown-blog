@@ -1,0 +1,57 @@
+
+.menu-icon{
+
+    position:absolute;
+    color:white;
+    font-size:30px;
+    left:42px;
+    top:24px;
+    cursor:poniter;
+    z-index: 1;
+
+
+
+}
+.menu-container{
+    height :100%;
+    width:100%;
+    position:fixed;
+    top: 0px;
+    left: 0px;
+    z-index :1;
+    background: rgba(0,0,0,0.5);
+    overflow:hidden;
+    display: none;
+}
+
+
+.menu-content a{
+    padding:16px;
+    text-decoration: none;
+    font-size: 25px;
+    color:greenyellow;
+    display:block;
+    font-weight:bolder;
+    font-family:sans-serif;
+
+
+  
+
+}
+.menu-content a:hover{
+    background-color: #1b998b;
+
+
+}
+.menu-container .closebtn{
+    position:absolute;
+    top:36px;
+    right:48px;
+    font-size:30px;
+    color:white;
+    z-index:1;
+    cursor:poniter;
+
+
+}
+

@@ -16,25 +16,43 @@
     <script src="../../js/main.js"></script>
 
 </head>
+<link rel="stylesheet" href="../../css/nav2.css">
+<link rel="stylesheet" href="../../css/nav.css">
+
+<script type="text/javascript">
+
+    function openNav() {
+        document.getElementById("myNav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+    }
+</script>
 
 <body>
-    <nav id="navbar" style="justify-content: space-between;">
-        <div id="logo">
-            <img src="../../assets/logo.png" alt="">
+    <span class="menu-icon" onclick="openNav()">&#9776;</span>
+    <div class="menu-container" id="myNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="menu-content" style="  position: relative;
+    top:25%;
+    width:100%;
+    text-align:center;
+    margin-top:30px;">
+
+            <a href="/articles">All Articles</a>
+            <a href="/articles/myArticles">My Articles</a>
+            <a href="/articles/new">New Article</a>
+            <a href="/users/logout">Logout</a>
         </div>
-
-        <ul id="options">
-            <li id="choice"><a href="/articles">All Articles</a></li>
-            <li id="choice"><a href="/articles/myArticles">My Articles</a></li>
-            <li id="choice"><a href="/articles/new">New Article</a></li>
-
-
-        </ul>
-        <a href="/users/logout" class="btn btn-secondary" id="logout">Logout</a>
-
-    </nav>
-    <div class="container" style="overflow-y: auto;">
+    </div>
+    <div id="topframe">
         <h1 class="mb-4" id="page-title">New Article</h1>
+    </div>
+    <br /><br /><br />
+
+    <div class="container" style="overflow-y: auto;">
+
 
 
         <form action="/articles" method="POST">
@@ -53,6 +71,7 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
+
 
 
 </html>

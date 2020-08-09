@@ -14,27 +14,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
+    <link rel="stylesheet" href="../../css/nav2.css">
+    <link rel="stylesheet" href="../../css/nav.css">
+    <link rel="stylesheet" href="../../css/register.css">
 
 </head>
+<script type="text/javascript">
+
+    function openNav() {
+        document.getElementById("myNav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+    }
+
+</script>
 
 <body>
-    <nav id="navbar">
-        <div id="logo">
-            <img src="../../assets/logo.png" alt="">
+    <span class="menu-icon" onclick="openNav()">&#9776;</span>
+
+
+    <div class="menu-container" id="myNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="menu-content" style="  position: relative;
+    top:25%;
+    width:100%;
+    text-align:center;
+    margin-top:30px;">
+            <a href="/">Home</a></li>
+            <a href="/users/login">Login</a></li>
+            <a href="/users/register">Register</a></li>
+            <a class="disabled" href="#" aria-disabled="true" id="choice">Articles</a></li>
         </div>
-
-        <ul id="options">
-            <li id="choice"><a href="/">Home</a></li>
-            <li id="choice"><a href="/users/login">Login</a></li>
-            <li id="choice"><a href="/users/register">Register</a></li>
-            <li id="choice"><a class="disabled" href="#" aria-disabled="true" id="choice">Articles</a></li>
-
-        </ul>
-
-
-    </nav>
+    </div>
+    <div id="topframe"></div>
+    <h1 class="mb-4" id="page-title">Register to Type-O!!!</h1>
+    <br /><br />
     <div class="container" style="overflow-y: auto">
-        <h1 class="mb-4" id="page-title">Register to Type-O!!!</h1>
+
         <div class="card" id="">
             <%- include("./partials/messages") %>
             <form action="/users/register" method="POST">
@@ -66,7 +84,7 @@
                     </button>
                 </div>
             </form>
-            <p class="lead mt-4 card-text">Have An Account? <a href="/users/login">Login</a></p>
+
 
         </div>
 
@@ -82,6 +100,9 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
+<div id="bottomframe">
+    <p class="lead mt-4 card-text">Have An Account? <a href="/users/login">Login</a></p>
+</div>
 
 
 </html>

@@ -10,33 +10,52 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/town.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/main.js"></script>
+    <link rel="stylesheet" href="../../css/nav2.css">
+    <link rel="stylesheet" href="../../css/nav.css">
 
 </head>
+<script type="text/javascript">
+
+    function openNav() {
+        document.getElementById("myNav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("myNav").style.display = "none";
+    }
+
+</script>
 
 <body>
 
-    <nav id="navbar">
-        <div id="logo">
-            <img src="../../assets/logo.png" alt="">
+    <span class="menu-icon" onclick="openNav()">&#9776;</span>
+
+
+    <div class="menu-container" id="myNav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="menu-content" style="  position: relative;
+    top:25%;
+    width:100%;
+    text-align:center;
+    margin-top:30px;">
+            <a href="/">Home</a></li>
+            <a href="/users/login">Login</a></li>
+            <a href="/users/register">Register</a></li>
+            <a class="disabled" href="#" aria-disabled="true" id="choice">Articles</a></li>
         </div>
-
-        <ul id="options">
-            <li id="choice"><a href="/">Home</a></li>
-            <li id="choice"><a href="/users/login">Login</a></li>
-            <li id="choice"><a href="/users/register">Register</a></li>
-            <li id="choice"><a class="disabled" href="#" aria-disabled="true" id="choice">Articles</a></li>
-
-        </ul>
-
-
-    </nav>
-
-    <div class="container mt-40" style="overflow-y: auto">
+    </div>
+    <div id="topframe">
         <h1 class="mb-4" id="page-title">Welcome to Type-O!!!</h1>
+
+    </div>
+
+    <br /><br /><br /><br /><br />
+    <div class="container mt-40" style="overflow-y: auto">
+
         <div class="card" id="description">
             <h4>
                 Type-O is one of india's top blog websites. Anyone from anywhere can write their opinion, analysis, and
@@ -48,8 +67,9 @@
 
         </div>
         <div id="options" style="overflow-y: auto;">
-            <a href="/users/register" class="btn btn-primary btn-block mb-2 mt-2">Register</a>
-            <a href="/users/login" class="btn btn-success btn-block mb-3 mt-3">Login</a>
+            <a href="/users/register"
+                class="btn btn-primary btn-block mb-2 mt-2 mr-2 ml-2">Register</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="/users/login" class="btn btn-success btn-block mb-3 mt-3 mr-2 ml-2">Login</a>
         </div>
 
     </div>
@@ -64,6 +84,8 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
 </body>
+
+
 
 
 </html>

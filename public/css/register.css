@@ -7,23 +7,6 @@
     font-family: 'Roboto Mono', monospace;
     font-weight: 500;
 }
-@media (max-width:580px)
-{
-     #page-title
-    {
-        font-size: 1.2em;
-        text-shadow: 1px 1px 0.1px black;
-    }
-}
-
-@media (max-width:870px)
-{
-    #page-title
-    {
-        font-size: 2.0em;
-        text-shadow: 2px 2px 0.3px black;
-    }
-}
 body::before{
     content: "";
     position: absolute;
@@ -32,17 +15,19 @@ body::before{
     top: 0px;
     left: 0px;
     background: url('https://images.pexels.com/photos/585752/pexels-photo-585752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ;
-    opacity: 0.8;
+    opacity: 1.0;
     z-index: -1;
 }
 .container{
-    overflow-y: scroll;
+    
     height: 83vh;
+    cursor: pointer;
+    
+
 }
 .card{
     background-color: #ffffff45;
     height:auto;
-    
     width:100%;
 
 }
@@ -51,7 +36,7 @@ body::before{
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.979);
     transition: 0.1s;
     border: none;
-    height:300px;
+    height:600px;
     width:1100px;
 
 }
@@ -107,7 +92,7 @@ h4,label{
     font-style: italic;
 }
 input,textarea{
-background-color: blanchedalmond;
+background-color: rgba(255, 235, 205, 0.596);
 outline: none;
 font-family: 'Roboto Mono', monospace;
 font-style: italic;
@@ -188,53 +173,13 @@ border: none;
 }
 #navbar ul li a:hover
 {
-    background-color: bisque;
+    background-color: greenyellow;
     color: black;
     font-weight: 400;
+    cursor:pointer;
 }
 #logout{
     margin-right:4px;
     width: 6vw;
     
-}
-#like-unlike{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    width: auto;
-}
-#like-unlike button
-{
-    border: none;
-    outline: none;
-}
-.like-unlike
-{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.comment-box{
-    display: none;
-}
-.each-comment{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    box-shadow: 3px 3px 1px black;
-}
-.profile
-{
-    display: flex;
-     flex-direction: column;
-      justify-content: space-between;
-    width: 20vw;
-    padding: 0px;
-    font-family:'Roboto Mono', monospace;
-    color: black;
-    font-weight: bold;
-    font-style: italic;
-    margin-right: 0px;
 }
