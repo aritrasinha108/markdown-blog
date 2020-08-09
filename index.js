@@ -14,7 +14,7 @@ require('./config/passport')(passport);
 const ensureAthenticated = require('./config/authenticate').ensureAuthenticated;
 
 
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.MONGODB_URI || db, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => {
         console.log("MongoDb connected...");
     })
