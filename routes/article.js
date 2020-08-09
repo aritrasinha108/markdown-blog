@@ -55,7 +55,14 @@ router.get('/:slug', async (req, res) => {
 
 router.get('/edit/:id', async (req, res) => {
     let article = await Article.findById(req.params.id);
-    res.render('articles/edit', { article: article });
+    if (req.user.email == article.authorEmail) {
+        res.render('articles/edit', { article: article });
+    }
+    else {
+        req.flash('error_msg', "You are not authorized to edit the article");
+        res.redirect('/articles');
+
+    }
 });
 
 router.delete('/:id', async (req, res) => {
@@ -132,7 +139,7 @@ router.post('/toggleUpvote/:title', async (req, res) => {
         }
         else {
 
-            article.upvotes.splice(upvoter => upvoter.email == req.user.email);
+            article.upvotes.splice(upvoter => upvoter.email == req.user.email, 1);
 
             await article.save();
             console.log(article.upvotes);
@@ -182,7 +189,7 @@ router.post('/toggleDownvote/:title', async (req, res) => {
             });
         }
         else {
-            article.downvotes.splice(downvoter => downvoter.email == req.user.email);
+            article.downvotes.splice(index, 1);
             await article.save();
             console.log(article.downvotes);
             res.json({
