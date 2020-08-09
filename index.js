@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = process.env.PORT || 3000;
 const articleRouter = require('./routes/article');
 const { Article, Comment, Voter } = require('./model/article');
 const mongoose = require('mongoose');
@@ -54,4 +55,4 @@ app.get('/', async (req, res) => {
 });
 
 
-app.listen(3000);
+app.listen(PORT);
