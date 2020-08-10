@@ -32,7 +32,7 @@ body::before{
     top: 0px;
     left: 0px;
     background: url('https://images.pexels.com/photos/585752/pexels-photo-585752.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') ;
-    opacity: 0.8;
+    opacity: 0.4;
     z-index: -1;
 }
 .container{
