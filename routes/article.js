@@ -113,14 +113,18 @@ router.post('/toggleUpvote/:title', async (req, res) => {
         res.json({
             status: "error",
             status: "error",
-            message: "Post dows not exist"
+            message: "Post does not exist"
         });
     }
     else {
 
         let upvoters = article.upvotes;
         console.log("upvoters are" + upvoters)
-        let index = upvoters.findIndex(upvoter => upvoter.email == req.user.email);
+        let index = upvoters.findIndex(upvoter => {
+            console.log(upvoter.email);
+            console.log(req.user.email);
+            return upvoter.email == req.user.email
+        });
         console.log(index + " is the index ");
         if (index == -1) {
 
@@ -139,7 +143,7 @@ router.post('/toggleUpvote/:title', async (req, res) => {
         }
         else {
 
-            article.upvotes.splice(upvoter => upvoter.email == req.user.email, 1);
+            article.upvotes.splice(index, 1);
 
             await article.save();
             console.log(article.upvotes);

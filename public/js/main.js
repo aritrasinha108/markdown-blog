@@ -1,13 +1,7 @@
 
 function showComments(event) {
     let id = event.target.getAttribute("data-id");
-    // $(`#comment-box-${id}`).toggle(
-    //     () => {
-    //         $(`#comment-box-${id}`).show();
 
-    //     },
-    //     () => { $(`#comment-box-${id}`).hide(); },
-    // );
 
     let display = $(`#comment-box-${id}`).css('display');
     console.log(display);
@@ -110,9 +104,9 @@ $(document).ready(function () {
             if (this.readyState == 4 && this.status == 200) {
                 var response = JSON.parse(this.responseText);
                 if (response.status == "success") {
-                    let comments = parseInt($(`#comment-button-${id}`).innerText);
+                    let comments = parseInt(document.getElementById(`comment-button-${id}`).innerHTML);
                     comments++;
-                    $(`#comment-button-${id}`).innerHTML = `${comments}`;
+                    document.getElementById(`comment-button-${id}`).innerHTML = comments;
                     $(`#comment-box-${id}`).append(`
                     <div class="card" class="each-comment"
                     style="display: flex; flex-direction: row; justify-content: start ;height: auto;margin: 5px 2px;">
