@@ -49,7 +49,7 @@ router.get('/:slug', async (req, res) => {
         res.redirect('/articles');
     let id = article._id;
     // console.log(id + " is the type of id that is present");
-    res.render('articles/show', { article: article });
+    res.render('articles/show', { article: article, user: req.user });
 
 });
 
