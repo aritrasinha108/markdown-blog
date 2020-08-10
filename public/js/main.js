@@ -15,6 +15,44 @@ function showComments(event) {
 }
 $(document).ready(function () {
     console.log("Website ready...");
+
+    var elements = document.getElementsByClassName("upvote-button");
+    console.log(elements);
+    for (var i = 0; i < elements.length; i++) {
+        console.log("at element index:" + i);
+        index = elements[i].dataset.index
+        id = elements[i].dataset.id;
+        console.log(index);
+        if (index != -1) {
+            elements[i].style.color = "blue";
+
+        }
+        else {
+            elements[i].style.color = "black";
+        }
+
+
+
+    }
+    var elements = document.getElementsByClassName("downvote-button");
+    console.log(elements);
+    for (var i = 0; i < elements.length; i++) {
+        console.log("at element index:" + i);
+        index = elements[i].dataset.index
+        id = elements[i].dataset.id;
+        console.log(index);
+        if (index != -1) {
+            elements[i].style.color = "blue";
+
+        }
+        else {
+            elements[i].style.color = "black";
+        }
+
+
+
+    }
+
     $(".upvote-button").click(function (event) {
         const xhr = new XMLHttpRequest();
         var title = event.target.getAttribute("data-id");
@@ -28,6 +66,7 @@ $(document).ready(function () {
                     console.log('earlier ' + upvotes);
                     upvotes++;
                     event.target.innerHTML = `${upvotes}`;
+                    event.target.style.color = "blue";
                     // alert(response.message);
                     console.log('now ' + upvotes);
 
@@ -37,6 +76,8 @@ $(document).ready(function () {
                     console.log('earlier ' + upvotes);
                     upvotes--;
                     event.target.innerHTML = `${upvotes}`;
+                    event.target.style.color = "black";
+
                     // alert(response.message);
                     console.log('now ' + upvotes);
                 }
@@ -67,6 +108,8 @@ $(document).ready(function () {
                     console.log('earlier ' + downvotes);
                     downvotes++;
                     event.target.innerHTML = `${downvotes}`;
+                    event.target.style.color = "blue";
+
                     // alert(response.message);
                     console.log('now ' + downvotes);
                 }
@@ -75,6 +118,8 @@ $(document).ready(function () {
                     console.log('earlier ' + downvotes);
                     downvotes--;
                     event.target.innerHTML = `${downvotes}`;
+                    event.target.style.color = "black";
+
                     // alert(response.message);
                     console.log('now ' + downvotes);
                 }
@@ -93,6 +138,7 @@ $(document).ready(function () {
 
     });
     $(".add-comment").click(function (event) {
+
         event.preventDefault();
         const xhr = new XMLHttpRequest();
         const id = event.target.getAttribute("data-id");

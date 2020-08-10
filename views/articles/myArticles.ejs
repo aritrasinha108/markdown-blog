@@ -78,23 +78,28 @@
 
                 <div id="like-unlike" style="justify-content: center;align-items: center;flex-wrap: wrap;">
 
-                    <div class="like-unlike">
 
-                        <i class="fa fa-thumbs-up upvote-button" data-id="<%= article.title %>" style="margin:5px 5px">
+
+                    <div class="like-unlike">
+                        <i class="fa fa-thumbs-up upvote-button" data-id="<%= article.title %>" style="margin:5px 5px"
+                            data-index="<%= article.upvotes.findIndex(upvoter=>upvoter.email==user.email) %>">
 
                             <%= article.upvotes.length %>
 
                         </i>
+
                     </div>
-                    <div class="like-unlike">
+
+                    <div class=" like-unlike">
 
                         <i class="fa fa-thumbs-down downvote-button" style="margin:5px 5px"
-                            data-id="<%=article.title %>">
+                            data-id="<%=article.title %>"
+                            data-index="<%= article.downvotes.findIndex(downvoter=>downvoter.email==user.email) %>">
 
                             <%= article.downvotes.length %>
                         </i>
                     </div>
-                    <div class="like-unlike">
+                    <div class=" like-unlike">
 
                         <i class="fa fa-comments comment-button" id="comment-button-<%=article.id %>"
                             data-id="<%= article.id %>" onclick="showComments(event)"
@@ -147,9 +152,9 @@
             </div>
 
         </div>
-    </div>
-    </div>
-    <%}) %>
+
+
+        <%}) %>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

@@ -83,7 +83,8 @@
                         <div class="like-unlike">
 
                             <i class="fa fa-thumbs-up upvote-button" data-id="<%= article.title %>"
-                                style="margin:5px 5px">
+                                style="margin:5px 5px"
+                                data-index="<%= article.upvotes.findIndex(upvoter=>upvoter.email==user.email) %>">
 
                                 <%= article.upvotes.length %>
 
@@ -92,7 +93,8 @@
                         <div class="like-unlike">
 
                             <i class="fa fa-thumbs-down downvote-button" style="margin:5px 5px"
-                                data-id="<%=article.title %>">
+                                data-id="<%=article.title %>"
+                                data-index="<%= article.downvotes.findIndex(downvoter=>downvoter.email==user.email) %>">
 
                                 <%= article.downvotes.length %>
                             </i>

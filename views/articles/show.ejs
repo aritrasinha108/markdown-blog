@@ -60,7 +60,8 @@
 
             <div class="like-unlike">
 
-                <i class="fa fa-thumbs-up upvote-button" data-id="<%= article.title %>" style="margin:5px 5px">
+                <i class="fa fa-thumbs-up upvote-button" data-id="<%= article.title %>" style="margin:5px 5px"
+                    data-index="<%= article.upvotes.findIndex(upvoter=>upvoter.email==user.email) %>">
 
                     <%= article.upvotes.length %>
 
@@ -68,16 +69,17 @@
             </div>
             <div class="like-unlike">
 
-                <i class="fa fa-thumbs-down downvote-button" style="margin:5px 5px" data-id="<%=article.title %>">
+                <i class="fa fa-thumbs-down downvote-button" style="margin:5px 5px" data-id="<%=article.title %>"
+                    data-index="<%= article.downvotes.findIndex(downvoter=>downvoter.email==req.user.email)">
 
                     <%= article.downvotes.length %>
                 </i>
             </div>
-            <div class="like-unlike">
+            <div class=" like-unlike">
 
-                <i class="fa fa-comments comment-button" id="comment-button-<%=article.id %>"
-                    data-id="<%= article.id %>" onclick="showComments(event)"
-                    style="margin: 5px 5px;"><%= article.comments.length %></i>
+                    <i class="fa fa-comments comment-button" id="comment-button-<%=article.id %>"
+                        data-id="<%= article.id %>" onclick="showComments(event)"
+                        style="margin: 5px 5px;"><%= article.comments.length %></i>
 
             </div>
             <a href="/articles/" class="btn btn-secondary mr-3 ml-3 mt-4 mb-5"> All Articles</a>
